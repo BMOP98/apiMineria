@@ -30,16 +30,12 @@ jobs:
         
         for service in "${services[@]}"
         do
-          if git diff --quiet HEAD^ HEAD -- $service/; then
-            echo "No changes detected in $service, skipping build and push."
+          if [ -d "$service" ]; then
+            docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/$service:latest ./$service
+            docker push ${{ secrets.DOCKERHUB_USERNAME }}/$service:latest
           else
-            if [ -d "$service" ]; then
-              docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/$service:latest ./$service
-              docker push ${{ secrets.DOCKERHUB_USERNAME }}/$service:latest
-            else
-              echo "Could not find directory for service $service"
-              exit 1
-            fi
+            echo "Could not find directory for service $service"
+            exit 1
           fi
         done
 
