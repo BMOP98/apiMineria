@@ -113,7 +113,7 @@ router.post('/', async (req, res) => {
     };
     res.status(201).json(result);
   } else {
-    res.status(500).json({ error: "No se pudo generar un nuevo proyecto. " + llave});
+    res.status(500).json({ error: "No se pudo generar un nuevo proyecto. llave: " + llave});
   }
 });
 
