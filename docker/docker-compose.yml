@@ -1,0 +1,7 @@
+version: "3.9"
+services:
+  prediccion:
+   build: ../prediccion
+   ports:
+     - 5000
+ 
