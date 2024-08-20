@@ -1,7 +1,7 @@
 const express = require('express');
 const axios = require('axios');
 const router = express.Router();
-const llave = process.env.APIKEY;  // Reemplaza esto con tu clave de API real
+const llave = process.env.APIKEY;
 
 // Función para generar un nombre, descripción y evaluación de factibilidad del proyecto basado en un prompt con reintento
 async function generarProyecto(prompt, ubi, tamanoProyecto, model) {
