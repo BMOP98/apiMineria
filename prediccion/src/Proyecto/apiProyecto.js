@@ -5,7 +5,6 @@ const llave = process.env.LLAVE;  // Reemplaza esto con tu clave de API real
 
 // Función para generar un nombre, descripción y evaluación de factibilidad del proyecto basado en un prompt con reintento
 async function generarProyecto(prompt, ubi, tamanoProyecto, model) {
-  console.log("LLAVE " + llave);
   const maxRetries = 3;
   const retryDelay = 20000; // 20 segundos en milisegundos
   for (let attempt = 1; attempt <= maxRetries; attempt++) {
